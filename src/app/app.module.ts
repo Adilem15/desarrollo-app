@@ -6,6 +6,7 @@ import { ModuloModule } from './module/module.module';
 import { ProductService } from './shared/product.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    AuthModule,
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
