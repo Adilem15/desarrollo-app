@@ -1,25 +1,20 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './modulos/dashboard/dashboard.component';
-
-import { SharedModule } from './modulos/shared/shared.module';
-import { DashboardModule } from './modulos/dashboard/dashboard.module';
+import { ModuloModule } from './module/module.module';
+import { ProductService } from './shared/product.service';
 
 @NgModule({
   declarations: [
-    AppComponent,
-
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    DashboardModule,
-    SharedModule
+    ModuloModule
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
