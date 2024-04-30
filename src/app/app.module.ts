@@ -4,15 +4,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ModuloModule } from './module/module.module';
 import { ProductService } from './shared/product.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent, 
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ModuloModule
+    ModuloModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

@@ -7,7 +7,10 @@ const routes: Routes = [
     loadChildren:() => import('./comprar/comprar.module').then(m => m.ComprarModule),
   },
   { path: '', loadChildren: () => import('./module/module.module').then(m => m.ModuloModule) },
-  { path: '**', redirectTo: '/productos', pathMatch: 'full' }
+  { path: '**', redirectTo: '/productos', pathMatch: 'full' },
+  {path: 'contactanos', loadChildren:()=> import('./contactanos/contactanos.module').then(m=> m.ContactanosModule)
+    
+},
 ];
 
 @NgModule({
