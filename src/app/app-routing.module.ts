@@ -5,7 +5,9 @@ const routes: Routes = [
   {
     path:'comprar',
     loadChildren:() => import('./comprar/comprar.module').then(m => m.ComprarModule),
-  }
+  },
+  { path: '', loadChildren: () => import('./module/module.module').then(m => m.ModuloModule) },
+  { path: '**', redirectTo: '/productos', pathMatch: 'full' }
 ];
 
 @NgModule({
@@ -13,3 +15,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
