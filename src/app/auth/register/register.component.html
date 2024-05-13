@@ -1,26 +1,68 @@
 <div class="wrapper fadeInDown">
   <div id="formContent">
-    <!-- Tabs Titles -->
     <h2 class="active">Registrarse</h2>
-
-    <!-- Icon -->
     <div class="fadeIn first">
       <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.99 9H15M8.99 9H9m12 3a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM7 13c0 1 .507 2.397 1.494 3.216a5.5 5.5 0 0 0 7.022 0C16.503 15.397 17 14 17 13c0 0-1.99 1-4.995 1S7 13 7 13Z"/>
       </svg>
-      
-      
     </div>
-
-    <!-- Login Form -->
-    <form>
-      <input type="text" id="username" class="fadeIn second" name="username" placeholder="username">
-      <input type="text" id="email" class="fadeIn second" name="email" placeholder="email">
-      <input type="text" id="password" class="fadeIn third" name="password" placeholder="password">
-      <input type="submit" class="fadeIn fourth" value="Registrarse">
+    <form [formGroup]="registerForm">
+      <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <input formControlName="email" type="text" id="email" class="fadeIn second" name="email" placeholder="email">
+        @if (emailField.errors && emailField.dirty) {
+          @if (emailField.errors['required']) {
+            <span class="error">El campo es obligatorio!!</span>
+          }
+          @else if (emailField.errors['minlength']) {
+            <span class="error">El campo debe ser un correo válido</span>
+          }
+          @else if (emailField.errors['maxlength']) {
+            <span class="error">Excediste el límite de carácteres</span>
+          }
+          @else if (emailField.errors['email']) {
+            <span class="error">El campo debe ser un correo válido</span>
+          }        
+        }
+      </div>
+      <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+      <input formControlName="password" type="text" id="password" class="fadeIn third" name="password" placeholder="password">
+      @if (passwordField.errors && passwordField.dirty) {
+        @if (passwordField.errors['required']) {
+          <span class="error">El campo es obligatorio!!</span>
+        }
+        @else if (passwordField.errors['minlength']) {
+          <span class="error">El campo debe tener mínimo 3 letras</span>
+        }
+      }
+      </div>
+      <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+      <input formControlName="birthdate" type="date" id="birthdate" class="fadeIn third" name="birthdate" placeholder="Fecha de nacimiento">
+      @if (birthdateField.errors && birthdateField.dirty) {
+        @if (birthdateField.errors['required']) {
+          <span class="error">El campo es obligatorio</span>
+        }
+      }
+     </div>
+      <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+      <input formControlName="age" type="number" id="phone" class="fadeIn second" name="age" placeholder="Edad">
+      @if (ageField.errors && ageField.dirty) {
+        @if (ageField.errors['required']) {
+          <span class="error">El campo es obligatorio!!</span>
+        }
+        @else if (ageField.errors['min']) {
+          <span class="error">Debe ser mayor de edad</span>
+        }
+        @else if (ageField.errors['max']) {
+          <span class="error">Solo se permite hasta los 65 años</span>
+        }
+      }
+      </div>
+      <div >
+        <p>Desea recibir notificaciones</p>
+        <p-inputSwitch formControlName="notification" />
+      </div>
+      <button type="submit" class="fadeIn fourth" (click)="validateForm()">Registrarse</button> 
     </form>
-
-    <!-- Remind Passowrd -->
     <div id="formFooter">
     </div>
 
