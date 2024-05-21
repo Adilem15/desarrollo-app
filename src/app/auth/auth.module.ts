@@ -5,6 +5,8 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InputSwitchModule } from 'primeng/inputswitch';
+import { ButtonModule } from 'primeng/button';
+
 
 
 @NgModule({
@@ -15,7 +17,8 @@ import { InputSwitchModule } from 'primeng/inputswitch';
     CommonModule,
     AuthRoutingModule,
     ReactiveFormsModule,
-    InputSwitchModule
+    InputSwitchModule,
+    ButtonModule
   ]
 })
 export class AuthModule { }
